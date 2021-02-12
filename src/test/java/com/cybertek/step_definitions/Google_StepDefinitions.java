@@ -44,13 +44,15 @@ public class Google_StepDefinitions {
     @When("User searches for {string}")
     public void user_searches_for(String string) {
         GoogleSearchPage googleSearchPage = new GoogleSearchPage();
-        googleSearchPage.searchBar.sendKeys("apple" + Keys.ENTER);
+        googleSearchPage.searchBar.sendKeys(string + Keys.ENTER);
     }
-
-
 
     @Then("User should see {string} in the title")
     public void user_should_see_in_the_title(String string) {
+        String actualTitle = Driver.getDriver().getTitle();
+        String expectedInTitle = string;
+        Assert.assertTrue(actualTitle.contains(expectedInTitle));
 
+        Driver.closeDriver();
     }
 }
