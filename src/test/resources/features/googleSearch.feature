@@ -12,3 +12,9 @@ Feature: Google search functionality
     Given User is on Google home page
     When User searches for apple
     Then User should see apple in the title
+
+  Scenario: User search title verification
+    Given User is on Google home page
+    When User searches for "orange"
+    Then User should see "orange" in the title
+
