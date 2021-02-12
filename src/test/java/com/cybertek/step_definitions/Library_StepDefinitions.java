@@ -9,6 +9,11 @@ import org.junit.Assert;
 public class Library_StepDefinitions {
 
 
+    @Given("user is on the login page")
+    public void user_is_on_the_login_page() {
+        System.out.println("User is on the login page.");
+    }
+
     @When("user enters librarian username")
     public void user_enters_librarian_username() {
         System.out.println("User enters LIBRARIAN username");
@@ -28,11 +33,6 @@ public class Library_StepDefinitions {
         System.out.println("User sees dashboard");
     }
 
-    @Given("user is on the login page")
-    public void user_is_on_the_login_page() {
-        System.out.println("User is on the login page.");
-    }
-
 
     @When("user enters student username")
     public void userEntersStudentUsername() {
@@ -47,4 +47,15 @@ public class Library_StepDefinitions {
         System.out.println("User enters student password");
 
     }
+
+    @When("user enters admin username")
+    public void user_enters_admin_username() {
+        System.out.println("User enters ADMIN username");
+    }
+
+    @When("user enters admin password")
+    public void user_enters_admin_password() {
+        System.out.println("User enters ADMIN password");
+    }
+
 }

@@ -3,7 +3,7 @@ Feature: Library app login feature
   Accounts are: librarian, student, admin
   #this is how you comment in feature file
 
-  @wip
+  @librarian
   Scenario: Login as librarian
     Given user is on the login page
     When user enters librarian username
@@ -19,6 +19,6 @@ Feature: Library app login feature
   Scenario: Login as admin
     Given user is on the login page
     When user enters admin username
-    And user enters adming password
+    And user enters admin password
     Then user should see dashboard
 
