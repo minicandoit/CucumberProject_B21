@@ -14,6 +14,7 @@ public class Google_StepDefinitions {
     public void user_is_on_google_home_page() {
         Driver.getDriver().get("https://www.google.com");
     }
+
     @When("User searches for apple")
     public void user_searches_for_apple() {
         GoogleSearchPage googleSearchPage = new GoogleSearchPage();
@@ -24,6 +25,8 @@ public class Google_StepDefinitions {
         String actualTitle = Driver.getDriver().getTitle();
         String expectedInTitle = "apple";
         Assert.assertTrue(actualTitle.contains(expectedInTitle));
+
+        Driver.closeDriver();
     }
 
 }
