@@ -43,7 +43,8 @@ public class Google_StepDefinitions {
 
     @When("User searches for {string}")
     public void user_searches_for(String string) {
-
+        GoogleSearchPage googleSearchPage = new GoogleSearchPage();
+        googleSearchPage.searchBar.sendKeys("apple" + Keys.ENTER);
     }
 
 
