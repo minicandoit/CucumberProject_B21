@@ -10,6 +10,15 @@ import org.openqa.selenium.Keys;
 
 public class Google_StepDefinitions {
 
+    @Then("User should see title is Google")
+    public void user_should_see_title_is_google() {
+       String actual = Driver.getDriver().getTitle();
+       String expected = "Google";
+
+       Assert.assertTrue(actual.equals(expected));
+    }
+
+
     @Given("User is on Google home page")
     public void user_is_on_google_home_page() {
         Driver.getDriver().get("https://www.google.com");
