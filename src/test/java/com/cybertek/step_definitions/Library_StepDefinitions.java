@@ -33,4 +33,10 @@ public class Library_StepDefinitions {
     }
 
 
+    @When("user enters student username")
+    public void userEntersStudentUsername() {
+
+        System.out.println("User enters STUDENT username");
+
+    }
 }
