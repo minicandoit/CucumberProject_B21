@@ -1,6 +1,7 @@
 Feature: Library app login feature
   As a user, I should be able to login with correct credentials to different accounts. And dashboard should be displayed.
   Accounts are: librarian, student, admin
+  #this is how you comment in feature file
 
   @wip
   Scenario: Login as librarian
@@ -9,5 +10,5 @@ Feature: Library app login feature
     And user enter librarian password
     Then user should see dashboard
 
-    #WINDOWS alt + enter
-    #MAC option + enter
+  #Scenario:  Login as student
+
