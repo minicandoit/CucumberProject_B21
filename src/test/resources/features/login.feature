@@ -7,4 +7,7 @@ Feature: Library app login feature
     Given user is on the login page
     When user enters librarian username
     And user enter librarian password
-    Then user should see librarian in the dashboard
+    Then user should see dashboard
+
+    #WINDOWS alt + enter
+    #MAC option + enter

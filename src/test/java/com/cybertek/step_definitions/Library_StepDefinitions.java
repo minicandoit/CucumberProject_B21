@@ -15,12 +15,14 @@ public class Library_StepDefinitions {
     public void user_enters_librarian_username() {
         System.out.println("User enters LIBRARIAN username");
     }
+
     @When("user enter librarian password")
     public void user_enter_librarian_password() {
         System.out.println("User enters LIBRARIAN password");
     }
-    @Then("user should see librarian in the dashboard")
-    public void user_should_see_librarian_in_the_dashboard() {
+
+    @Then("user should see dashboard")
+    public void userShouldSeeDashboard() {
         System.out.println("User sees dashboard");
     }
 }
