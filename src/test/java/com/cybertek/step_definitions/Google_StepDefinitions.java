@@ -41,4 +41,15 @@ public class Google_StepDefinitions {
         Driver.closeDriver();
     }
 
+    @When("User searches for {string}")
+    public void user_searches_for(String string) {
+
+    }
+
+
+
+    @Then("User should see {string} in the title")
+    public void user_should_see_in_the_title(String string) {
+
+    }
 }
