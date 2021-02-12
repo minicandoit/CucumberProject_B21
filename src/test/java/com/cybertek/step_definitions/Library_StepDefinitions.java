@@ -1,5 +1,6 @@
 package com.cybertek.step_definitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -37,6 +38,13 @@ public class Library_StepDefinitions {
     public void userEntersStudentUsername() {
 
         System.out.println("User enters STUDENT username");
+
+    }
+
+    @And("user enters student password")
+    public void userEntersStudentPassword() {
+
+        System.out.println("User enters student password");
 
     }
 }
