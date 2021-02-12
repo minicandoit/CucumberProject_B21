@@ -16,6 +16,9 @@ public class Google_StepDefinitions {
        String expected = "Google";
 
        Assert.assertTrue(actual.equals(expected));
+
+       //All of the above done in one line.
+       //Assert.assertTrue(Driver.getDriver().getTitle().equals("Google"));
     }
 
 
