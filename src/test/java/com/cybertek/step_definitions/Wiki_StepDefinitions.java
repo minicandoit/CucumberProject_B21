@@ -38,4 +38,10 @@ public class Wiki_StepDefinitions {
     }
 
 
+    @Then("User sees {string} in the main header")
+    public void userSeesInTheMainHeader(String arg0) {
+
+
+
+    }
 }
