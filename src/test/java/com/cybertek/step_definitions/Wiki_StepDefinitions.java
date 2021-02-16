@@ -1,5 +1,7 @@
 package com.cybertek.step_definitions;
 
+import com.cybertek.utilities.ConfigurationReader;
+import com.cybertek.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,6 +10,8 @@ public class Wiki_StepDefinitions {
 
     @Given("User is on Wikipedia home page")
     public void user_is_on_wikipedia_home_page() {
+        String url = ConfigurationReader.getProperty("wikiUrl");
+        Driver.getDriver().get(url);
 
     }
 
