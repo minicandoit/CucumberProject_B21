@@ -1,10 +1,9 @@
 package com.cybertek.step_definitions;
 
 import com.cybertek.utilities.Driver;
-import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.Before;
-import io.cucumber.java.BeforeStep;
+import io.cucumber.java.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
@@ -25,11 +24,14 @@ public class Hooks {
     }
 
     @After (order = 2)
-    public void tearDownScenario(){
-        System.out.println("------Closing browser");
-        System.out.println("------Take a screenshot");
-
+    public void tearDownScenario(Scenario scenario){
         Driver.closeDriver();
+        //if my scenario failed
+            // go and take screen shot
+
+        byte[] screenShot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+
+
     }
 
     @BeforeStep
