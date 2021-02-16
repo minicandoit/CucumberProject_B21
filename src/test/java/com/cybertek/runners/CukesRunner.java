@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
         plugin = "html:target/cucumber-report2.html",
         features = "src/test/resources/features",
         glue = "com/cybertek/step_definitions",
-        dryRun = false,
-        tags = "@dataTable"
+        dryRun = true,
+        tags = "@googleDataTable"
 )
 public class CukesRunner {
 }

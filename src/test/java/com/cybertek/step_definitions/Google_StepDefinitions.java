@@ -8,6 +8,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
+import java.util.List;
+
 public class Google_StepDefinitions {
 
     @Then("User should see title is Google")
@@ -54,4 +56,14 @@ public class Google_StepDefinitions {
         Assert.assertTrue(actualTitle.contains(expectedInTitle));
 
     }
+
+
+    @Then("User should see following links")
+    public void user_should_see_following_links(List<String> footerLinks) {
+
+
+
+
+    }
+
 }

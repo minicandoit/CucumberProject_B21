@@ -19,6 +19,7 @@ Feature: Google search functionality
     When User searches for "apple"
     Then User should see "apple" in the title
 
+    @googleDataTable
   Scenario: Google home page footer links verification
     Given User is on Google home page
     Then User should see following links
