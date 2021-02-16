@@ -6,6 +6,7 @@ import com.cybertek.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class Wiki_StepDefinitions {
 
@@ -30,7 +31,10 @@ public class Wiki_StepDefinitions {
 
     @Then("User sees {string} is in the wiki title")
     public void user_sees_is_in_the_wiki_title(String string) {
+        String actualTitle = Driver.getDriver().getTitle();
+        String expectedTitle = string +" - Wikipedia";
 
+        Assert.assertTrue(actualTitle.equalsIgnoreCase(expectedTitle));
     }
 
 
