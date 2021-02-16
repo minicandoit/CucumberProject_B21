@@ -10,4 +10,4 @@ Feature: Etsy search feature
   Scenario: Etsy search title verification
     Given user is on the Etsy landing page
     When user searches for "wooden spoon"
-    Then user should see "wooden spoon" in the Etsy title
+    Then user should see "Wooden spoon" in the Etsy title
