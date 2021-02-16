@@ -4,6 +4,7 @@ import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class Etsy_StepDefinitions {
@@ -22,5 +23,13 @@ public class Etsy_StepDefinitions {
 
         Assert.assertTrue(actual.equals(expected));
 
+    }
+
+    @When("user searches for {string}")
+    public void userSearchesFor(String arg0) {
+    }
+
+    @Then("user should see {string} in the Etsy title")
+    public void userShouldSeeInTheEtsyTitle(String arg0) {
     }
 }
