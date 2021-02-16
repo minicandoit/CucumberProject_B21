@@ -70,6 +70,10 @@ public class Google_StepDefinitions {
             System.out.println("eachLink = " + eachLink.getText());
         }
 
+        //Create a list of strings (as place holder)
+        //Loop through List of WebELements, pass all text into place holder list
+        //Then compare 2 List of Strings : actual vs expected
+
 
     }
 

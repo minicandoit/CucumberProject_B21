@@ -1,6 +1,8 @@
 Feature: Wikipedia search feature
   As a user, I should be able to search terms and see related results
 
+    #windows: alt + enter
+    #mac: option + enter
 
   Scenario: Wikipedia search title verification
     Given User is on Wikipedia home page
@@ -15,8 +17,14 @@ Feature: Wikipedia search feature
     And User clicks wiki search button
     Then User sees "Steve Jobs" in the main header
 
-    #windows: alt + enter
-    #mac: option + enter
 
+  Scenario Outline: Wikipedia search header verification
+    Given User is on Wikipedia home page
+    When User types "<searchValue>" in the wiki search box
+    And User clicks wiki search button
+    Then User sees "<expectedMainHeader>" in the main header
+    Then User sees "<expectedTitle>" is in the wiki title
 
+    Examples: search terms we are going to search in wikipedia
+    |||
 
