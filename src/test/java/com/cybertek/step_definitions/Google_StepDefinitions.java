@@ -61,7 +61,7 @@ public class Google_StepDefinitions {
     @Then("User should see following links")
     public void user_should_see_following_links(List<String> footerLinks) {
 
-
+        System.out.println("footerLinks = " + footerLinks);
 
 
     }
