@@ -2,6 +2,7 @@ package com.cybertek.step_definitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 
 public class Hooks {
 
@@ -15,10 +16,21 @@ public class Hooks {
         System.out.println("----- CONNECTING TO DATABASE ");
     }
 
-    @After
+    @After(value = "@db", order = 1)
+    public void closeDBConnection(){
+        System.out.println("------Closing browser");
+        System.out.println("------Take a screenshot");
+    }
+
+    @After (order = 2)
     public void tearDownScenario(){
         System.out.println("------Closing browser");
         System.out.println("------Take a screenshot");
+    }
+
+    @BeforeStep
+    public void runBeforeSteps(){
+        System.out.println("________________Running Before Each STEP ________________");
     }
 
 }
