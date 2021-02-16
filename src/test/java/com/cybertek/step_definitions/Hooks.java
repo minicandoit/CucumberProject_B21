@@ -1,5 +1,6 @@
 package com.cybertek.step_definitions;
 
+import com.cybertek.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -27,6 +28,8 @@ public class Hooks {
     public void tearDownScenario(){
         System.out.println("------Closing browser");
         System.out.println("------Take a screenshot");
+
+        Driver.closeDriver();
     }
 
     @BeforeStep
