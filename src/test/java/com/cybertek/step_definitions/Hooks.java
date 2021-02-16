@@ -1,6 +1,7 @@
 package com.cybertek.step_definitions;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeStep;
 
@@ -31,6 +32,12 @@ public class Hooks {
     @BeforeStep
     public void runBeforeSteps(){
         System.out.println("________________Running Before Each STEP ________________");
+
+    }
+
+    @AfterStep
+    public void runsAfterSteps(){
+        System.out.println("________________Running AFTER Each STEP ________________");
     }
 
 }
