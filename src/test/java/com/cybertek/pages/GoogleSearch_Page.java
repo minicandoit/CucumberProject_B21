@@ -4,12 +4,13 @@ import com.cybertek.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import sun.jvm.hotspot.debugger.Page;
 
 import java.util.List;
 
-public class GoogleSearchPage {
+public class GoogleSearch_Page {
 
-    public GoogleSearchPage(){
+    public GoogleSearch_Page(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
