@@ -41,7 +41,14 @@ public class Wiki_StepDefinitions {
     @Then("User sees {string} in the main header")
     public void userSeesInTheMainHeader(String arg0) {
 
+        String actualHeaderText = wikiPage.mainHeader.getText();
+        String expectedHeaderText= arg0;
 
+        //Checking the context of the web element
+        Assert.assertTrue(actualHeaderText.equalsIgnoreCase(expectedHeaderText));
+
+        //Checking if the web element displayed or not
+        Assert.assertTrue(wikiPage.mainHeader.isDisplayed());
 
     }
 }
