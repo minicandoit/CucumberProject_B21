@@ -39,5 +39,11 @@ public class Etsy_StepDefinitions {
 
     @Then("user should see {string} in the Etsy title")
     public void userShouldSeeInTheEtsyTitle(String arg0) {
+
+        String actual = Driver.getDriver().getTitle();
+        String expected = arg0+" | Etsy";
+
+        Assert.assertTrue(actual.equals(expected));
+
     }
 }
