@@ -1,5 +1,7 @@
 package com.cybertek.step_definitions;
 
+import com.cybertek.pages.SmartBearLoginPage;
+import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -10,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 public class DataTables_StepDefinitions {
+
+    SmartBearLoginPage smartBearLoginPage = new SmartBearLoginPage();
 
     @Then("User should see below words displayed")
     public void user_should_see_below_words_displayed(List<String> fruitList) {
@@ -34,17 +38,24 @@ public class DataTables_StepDefinitions {
     @When("User enters below info")
     public void user_enters_below_info(Map<String, String> loginInfo) {
 
+        /*  Map loginInfo
+            username = Tester
+            password = test
+         */
+
         String username=  loginInfo.get("username"); //--> will return Tester
         String password = loginInfo.get("password"); //--> will return test
 
-
+        smartBearLoginPage.loginToSmartBear(username, password);
 
 
     }
     @Then("User should see title changed to Web Orders")
     public void user_should_see_title_changed_to_web_orders() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        BrowserUtils.titleVerification("Web Orders");
+
+
     }
 
 

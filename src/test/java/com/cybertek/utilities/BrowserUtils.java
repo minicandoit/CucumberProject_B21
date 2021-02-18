@@ -1,6 +1,24 @@
 package com.cybertek.utilities;
 
+import org.junit.Assert;
+
 public class BrowserUtils {
+
+    /*
+    Method to assert title
+     */
+
+    public static void titleVerification(String expectedTitle){
+
+        String actualTitle = Driver.getDriver().getTitle();
+
+        Assert.assertTrue(actualTitle.equals(expectedTitle));
+
+        //return actualTitle.equals(expectedTitle);
+    }
+
+
+
 
     //create method name: wait
     //converting milliseconds to seconds
