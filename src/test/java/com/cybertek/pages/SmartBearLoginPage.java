@@ -38,7 +38,9 @@ public class SmartBearLoginPage {
     //login method where we can pass data from configuration.properties
     public void loginToSmartBear_Config(){
 
-        inputUsername.sendKeys(ConfigurationReader.getProperty(""));
+        inputUsername.sendKeys(ConfigurationReader.getProperty("sbUsername"));
+        inputPassword.sendKeys(ConfigurationReader.getProperty("sbPassword"));
+        loginButton.click();
 
     }
 }
