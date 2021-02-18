@@ -20,5 +20,11 @@ public class SmartBearLoginPage {
     @FindBy(id = "ctl00_MainContent_login_button")
     public WebElement loginButton;
 
+    public void loginToSmartBear(){
+        inputUsername.sendKeys("Tester");
+        inputPassword.sendKeys("test");
+        loginButton.click();
+    }
+
 
 }
