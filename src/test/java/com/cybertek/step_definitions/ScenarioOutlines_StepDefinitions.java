@@ -2,6 +2,7 @@ package com.cybertek.step_definitions;
 
 import com.cybertek.pages.SBear_BasePage;
 import com.cybertek.pages.SBear_OrderPage;
+import com.cybertek.pages.SBear_ViewAllOrdersPage;
 import com.cybertek.pages.SmartBearLoginPage;
 import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;
@@ -9,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.eo.Se;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 
@@ -17,6 +19,8 @@ public class ScenarioOutlines_StepDefinitions {
     SmartBearLoginPage smartBearLoginPage = new SmartBearLoginPage();
 
     SBear_OrderPage sBearOrderPage = new SBear_OrderPage();
+
+    SBear_ViewAllOrdersPage sBear_viewAllOrdersPage = new SBear_ViewAllOrdersPage();
 
     @Given("User is logged into SmartBear Tester account and on Order page")
     public void user_is_logged_into_smart_bear_tester_account_and_on_order_page() {
@@ -84,7 +88,12 @@ public class ScenarioOutlines_StepDefinitions {
         sBearOrderPage.processButton.click();
     }
     @Then("User verifies {string} is in the list")
-    public void user_verifies_is_in_the_list(String string) {
+    public void user_verifies_is_in_the_list(String expectedName) {
+        sBearOrderPage.viewAllOrdersLink.click();
+
+        String actualName = sBear_viewAllOrdersPage.newCustomerCell.getText();
+
+        Assert.assertTrue(actualName.equals(expectedName));
 
     }
 
