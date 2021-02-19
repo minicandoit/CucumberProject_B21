@@ -18,5 +18,5 @@ Feature: Smartbear order feature
     Then User verifies "<customer name>" is in the list
 
     Examples:
-      | product | quantity | customer name | street        | city   | state   | zip   | cardType | card number   | expiration date | customer name |
-      | myMoney | 2        | jamal         | 122 london st | london | chelsea | 55323 | visa     | customer name | 12/21           | jamal         |
+      | product | quantity | customer name | street        | city   | state   | zip   | cardType | card number      | expiration date | customer name |
+      | myMoney | 2        | jamal         | 122 london st | london | chelsea | 55323 | visa     | 3333555533335555 | 12/21           | jamal         |
