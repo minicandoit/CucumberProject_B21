@@ -11,6 +11,9 @@ public abstract class SBear_BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    //Common web elements that can be reached from multiple modules can be stored in BasePage
+    // So from each Page class, we just extend to them, and we will have access immediately
+
     @FindBy(linkText = "View all orders")
     public WebElement viewAllOrdersLink;
 

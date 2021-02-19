@@ -1,15 +1,27 @@
 package com.cybertek.step_definitions;
 
+import com.cybertek.pages.SBear_BasePage;
+import com.cybertek.pages.SBear_OrderPage;
+import com.cybertek.pages.SmartBearLoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ScenarioOutlines_StepDefinitions {
 
+    SmartBearLoginPage smartBearLoginPage = new SmartBearLoginPage();
+
+    SBear_OrderPage sBearOrderPage = new SBear_OrderPage();
+
     @Given("User is logged into SmartBear Tester account and on Order page")
     public void user_is_logged_into_smart_bear_tester_account_and_on_order_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        smartBearLoginPage.loginToSmartBear();
+
+        sBearOrderPage.orderLink.click();
+
+
+
     }
 
     @When("User fills out the form as followed from the table below:")
