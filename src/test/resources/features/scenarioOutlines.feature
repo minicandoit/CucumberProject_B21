@@ -1,5 +1,6 @@
 Feature: Smartbear order feature
 
+  @scenarioOutline
   Scenario Outline: User ordering a product from Orders page
     Given User is logged into SmartBear Tester account and on Order page
     When User fills out the form as followed from the table below:
