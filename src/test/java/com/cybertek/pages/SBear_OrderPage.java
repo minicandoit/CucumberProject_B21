@@ -3,7 +3,7 @@ package com.cybertek.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SBear_OrderPage {
+public class SBear_OrderPage extends SBear_BasePage{
 
 
     @FindBy(id="ctl00_MainContent_fmwOrder_ddlProduct")
