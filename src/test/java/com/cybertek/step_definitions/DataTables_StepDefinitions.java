@@ -1,5 +1,6 @@
 package com.cybertek.step_definitions;
 
+import com.cybertek.pages.DropdownsPage;
 import com.cybertek.pages.SmartBearLoginPage;
 import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.ConfigurationReader;
@@ -7,13 +8,18 @@ import com.cybertek.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.eo.Se;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class DataTables_StepDefinitions {
 
     SmartBearLoginPage smartBearLoginPage = new SmartBearLoginPage();
+    DropdownsPage dropdownsPage = new DropdownsPage();
 
     @Then("User should see below words displayed")
     public void user_should_see_below_words_displayed(List<String> fruitList) {
@@ -25,7 +31,6 @@ public class DataTables_StepDefinitions {
             System.out.println("eachFruit = " + eachFruit);
         }
     }
-
 
     @Given("User is on the login page of SmartBear")
     public void user_is_on_the_login_page_of_smart_bear() {
@@ -50,6 +55,7 @@ public class DataTables_StepDefinitions {
 
 
     }
+
     @Then("User should see title changed to Web Orders")
     public void user_should_see_title_changed_to_web_orders() {
 
@@ -66,7 +72,17 @@ public class DataTables_StepDefinitions {
 
 
     @Then("User should see below info in month dropdown")
-    public void user_should_see_below_info_in_month_dropdown(io.cucumber.datatable.DataTable dataTable) {
+    public void user_should_see_below_info_in_month_dropdown(List<String> expectedList) {
+
+        Select monthDropdown = new Select(dropdownsPage.monthDropdown);
+
+        List<WebElement> monthsAsWebElement = monthDropdown.getOptions();
+
+        List<String> monthsAsString = new ArrayList<>();
+
+        for (WebElement each : monthsAsWebElement) {
+            monthsAsString.add(each.getText());
+        }
 
 
 
