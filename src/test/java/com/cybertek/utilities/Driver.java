@@ -18,22 +18,24 @@ public class Driver {
 
         if (driverPool.get() == null) {
 
-            String browser = ConfigurationReader.getProperty("browser");
+            synchronized (Driver.class) {
+                String browser = ConfigurationReader.getProperty("browser");
 
-            switch (browser) {
-                case "chrome":
-                    WebDriverManager.chromedriver().setup();
-                    driverPool.set(new ChromeDriver());
-                    driverPool.get().manage().window().maximize();
-                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                    break;
-                case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
-                    driverPool.set(new FirefoxDriver());
-                    driverPool.get().manage().window().maximize();
-                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                    break;
+                switch (browser) {
+                    case "chrome":
+                        WebDriverManager.chromedriver().setup();
+                        driverPool.set(new ChromeDriver());
+                        driverPool.get().manage().window().maximize();
+                        driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                        break;
+                    case "firefox":
+                        WebDriverManager.firefoxdriver().setup();
+                        driverPool.set(new FirefoxDriver());
+                        driverPool.get().manage().window().maximize();
+                        driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                        break;
 
+                }
             }
         }
 
