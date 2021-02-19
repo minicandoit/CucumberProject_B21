@@ -49,39 +49,39 @@ public class ScenarioOutlines_StepDefinitions {
     }
     @When("User enters {string} to costumer name")
     public void user_enters_to_costumer_name(String string) {
-
+        sBearOrderPage.customerName.sendKeys(string);
     }
     @When("User enters {string} to street")
     public void user_enters_to_street(String string) {
-
+        sBearOrderPage.street.sendKeys(string);
     }
     @When("User enters {string} to city")
     public void user_enters_to_city(String string) {
-
+        sBearOrderPage.inputCity.sendKeys(string);
     }
     @When("User enters {string} to state")
     public void user_enters_to_state(String string) {
-
+        sBearOrderPage.inputState.sendKeys(string);
     }
     @When("User enters {string} to zip")
     public void user_enters_to_zip(String string) {
-
+        sBearOrderPage.inputZip.sendKeys(string);
     }
     @When("User selects {string} as card type")
     public void user_selects_as_card_type(String string) {
-
+        sBearOrderPage.visaCredit.click();
     }
     @When("User enters {string} to card number")
     public void user_enters_to_card_number(String string) {
-
+        sBearOrderPage.inputCardNumber.sendKeys(string);
     }
     @When("User enters {string} to expiration date")
     public void user_enters_to_expiration_date(String string) {
-
+        sBearOrderPage.inputExpireDate.sendKeys(string);
     }
     @When("User clicks process button")
     public void user_clicks_process_button() {
-
+        sBearOrderPage.processButton.click();
     }
     @Then("User verifies {string} is in the list")
     public void user_verifies_is_in_the_list(String string) {
