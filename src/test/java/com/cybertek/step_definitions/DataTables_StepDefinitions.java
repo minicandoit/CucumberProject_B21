@@ -9,6 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.eo.Se;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -84,6 +85,9 @@ public class DataTables_StepDefinitions {
             monthsAsString.add(each.getText());
         }
 
+        //Assertion will compare the size of the lists first, if it is not equal it will fail the test.
+        //If sizes are equal, than it will compare each element in the list
+        Assert.assertTrue(expectedList.equals(monthsAsString));
 
 
     }
