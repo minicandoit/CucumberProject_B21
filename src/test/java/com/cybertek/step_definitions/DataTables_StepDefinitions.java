@@ -77,17 +77,30 @@ public class DataTables_StepDefinitions {
 
         Select monthDropdown = new Select(dropdownsPage.monthDropdown);
 
-        List<WebElement> monthsAsWebElement = monthDropdown.getOptions();
 
-        List<String> monthsAsString = new ArrayList<>();
+        //Basically we are comparing two list of strings
+        //expected: List<String> expectedList
+        //actual : BrowserUtils.getElementsText(monthDropdown.getOptions()) --> Returns List <String>
 
-        for (WebElement each : monthsAsWebElement) {
-            monthsAsString.add(each.getText());
-        }
+        List<String> actualTexts = BrowserUtils.getElementsText(monthDropdown.getOptions());
+
+        Assert.assertTrue(expectedList.equals(actualTexts));
+
+
+
+
+
+//        List<WebElement> monthsAsWebElement = monthDropdown.getOptions();
+//
+//        List<String> monthsAsString = new ArrayList<>();
+//
+//        for (WebElement each : monthsAsWebElement) {
+//            monthsAsString.add(each.getText());
+//        }
 
         //Assertion will compare the size of the lists first, if it is not equal it will fail the test.
         //If sizes are equal, than it will compare each element in the list
-        Assert.assertTrue(expectedList.equals(monthsAsString));
+//        Assert.assertTrue(expectedList.equals(monthsAsString));
 
 
     }
