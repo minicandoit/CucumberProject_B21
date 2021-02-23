@@ -31,6 +31,18 @@ public class ExcelWrite {
         //open the sheet using workbook object
         sheet = workbook.getSheet("Employees");
 
+        //king's row
+        row = sheet.getRow(1);
+
+        //king's cell
+        cell = row.getCell(1);
+
+        //EX: Storing Adam's name cell if we were to be re-using it
+
+        XSSFCell adamsCell = sheet.getRow(2).getCell(0);
+
+        System.out.println("Before = " + adamsCell);
+
 
     }
 }
