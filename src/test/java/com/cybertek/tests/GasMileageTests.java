@@ -39,9 +39,13 @@ public class GasMileageTests {
         //opening sheet
         sheet = workbook.getSheet("Sheet1");
 
+        XSSFRow currentRow = sheet.getRow(1);
+
         //===========================================================================
         //entering current odometer reading
-        double current = 123000;
+        //double current = 123000;
+
+        double current = currentRow.getCell(1).getNumericCellValue();
 
         //Clearing the input box before entering any data
         gasMileageCalculatorPage.inputCurrentOdo.clear();
@@ -51,7 +55,8 @@ public class GasMileageTests {
 
         //===========================================================================
         //Entering previous odometer reading
-        double previous = 122000;
+        //double previous = 122000;
+        double previous = currentRow.getCell(2).getNumericCellValue();
 
         gasMileageCalculatorPage.inputPreviousOdo.clear();
         gasMileageCalculatorPage.inputPreviousOdo.sendKeys(String.valueOf(previous));
