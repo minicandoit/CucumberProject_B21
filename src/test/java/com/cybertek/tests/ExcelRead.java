@@ -67,10 +67,13 @@ public class ExcelRead {
         for (int rowNum = 0; rowNum < usedRows; rowNum++) {
 
             if (sheet.getRow(rowNum).getCell(1).toString().equals("Sandler")){
-                System.out.println("Sandler's last name: " + sheet.getRow(rowNum).getCell(1) );
+                System.out.println("Adam's last name = " + sheet.getRow(rowNum).getCell(1) );
             }
 
         }
+
+        //TODO: 3- CREATE A LOGIC TO PRINT OUT STEVEN KING'S JOB ID DYNAMICALLY
+        // CHECK FOR LAST NAME, IF IT IS KING, PRINT OUT JOB_ID
 
 
 
