@@ -118,7 +118,8 @@ public class GasMileageTests {
 
         currentRow.getCell(5).setCellValue(actual);
         //===========================================================================
-
+        //break until 3.06pm CST
+        //break until 4.06pm EST
 
         if (actual.equals(formattedExpected)){
             System.out.println("PASS!");
@@ -126,7 +127,15 @@ public class GasMileageTests {
             System.out.println("FAIL!");
         }
 
+        //===========================================================================
+        //We must write into excel file using .write method, otherwise changes will not be applied
 
+        fileOutputStream = new FileOutputStream(path);
+        workbook.write(fileOutputStream);
+
+        workbook.close();
+        fileInputStream.close();
+        fileOutputStream.close();
 
 
     }
