@@ -82,7 +82,6 @@ public class ExcelRead {
                 System.out.println("JOB_ID = "+sheet.getRow(rowNum).getCell(2));
 
             }
-
         }
 
 
