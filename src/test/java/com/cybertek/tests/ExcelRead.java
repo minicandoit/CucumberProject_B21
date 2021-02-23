@@ -75,7 +75,15 @@ public class ExcelRead {
         //TODO: 3- CREATE A LOGIC TO PRINT OUT STEVEN KING'S JOB ID DYNAMICALLY
         // CHECK FOR LAST NAME, IF IT IS KING, PRINT OUT JOB_ID
 
+        for (int rowNum = 0; rowNum < usedRows; rowNum++) {
 
+            if (sheet.getRow(rowNum).getCell(1).toString().equals("King")){
+
+                System.out.println("JOB_ID = "+sheet.getRow(rowNum).getCell(2));
+
+            }
+
+        }
 
 
     }
