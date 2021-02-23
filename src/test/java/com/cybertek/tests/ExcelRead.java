@@ -1,5 +1,6 @@
 package com.cybertek.tests;
 
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
@@ -48,6 +49,19 @@ public class ExcelRead {
         //Even counts if there are empty cells
         //this starts counting from 0
         int lastUsedRow = sheet.getLastRowNum();
+
+        //TODO: 1- CREATE A LOGIC TO PRINT OUT NEENA'S NAME DYNAMICALLY
+
+        for (int rowNum = 0; rowNum < usedRows; rowNum++) {
+
+            XSSFCell currentCell = sheet.getRow(rowNum).getCell(0);
+
+            if (currentCell.toString().equals("Neena")){
+                System.out.println("CurrentCell = " + currentCell);
+            }
+
+        }
+
 
 
 
