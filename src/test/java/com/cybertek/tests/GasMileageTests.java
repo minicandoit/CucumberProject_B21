@@ -118,13 +118,18 @@ public class GasMileageTests {
 
         currentRow.getCell(5).setCellValue(actual);
         //===========================================================================
-        //break until 3.06pm CST
-        //break until 4.06pm EST
+        //PASSING THE STATUS INTO THE EXCEL FILE
+
+        if (currentRow.getCell(6) == null){
+            currentRow.createCell(6);
+        }
 
         if (actual.equals(formattedExpected)){
-            System.out.println("PASS!");
+            //System.out.println("PASS!");
+            currentRow.getCell(6).setCellValue("PASS!");
         }else{
-            System.out.println("FAIL!");
+            //System.out.println("FAIL!");
+            currentRow.getCell(6).setCellValue("FAIL!");
         }
 
         //===========================================================================
