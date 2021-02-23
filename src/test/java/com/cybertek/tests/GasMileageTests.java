@@ -2,6 +2,7 @@ package com.cybertek.tests;
 
 import com.cybertek.pages.GasMileageCalculatorPage;
 import com.cybertek.utilities.Driver;
+import io.cucumber.java.hu.De;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -11,6 +12,7 @@ import org.junit.Test;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class GasMileageTests {
 
@@ -82,11 +84,17 @@ public class GasMileageTests {
         String actual = actualResultArr[0];
         String expected = String.valueOf(expectedResult);
 
-        if (actual.equals(expected)){
+        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+        String formattedExpected = decimalFormat.format(expectedResult);
+
+        System.out.println("formattedExpected = " + formattedExpected);
+
+        if (actual.equals(formattedExpected)){
             System.out.println("PASS!");
         }else{
             System.out.println("FAIL!");
         }
+
 
 
 
