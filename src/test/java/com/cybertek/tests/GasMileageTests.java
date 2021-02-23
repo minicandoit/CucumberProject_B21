@@ -78,7 +78,18 @@ public class GasMileageTests {
         String[] actualResultArr = gasMileageCalculatorPage.resultInGas.getText().split(" ");
         System.out.println("actualResultArr = " + actualResultArr[0]);
 
-        //Task to round expected result into looking like actual result
+
+        String actual = actualResultArr[0];
+        String expected = String.valueOf(expectedResult);
+
+        if (actual.equals(expected)){
+            System.out.println("PASS!");
+        }else{
+            System.out.println("FAIL!");
+        }
+
+
+
     }
 
 }
