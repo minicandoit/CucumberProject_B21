@@ -34,6 +34,14 @@ public class ExcelRead {
         //Print out "Steven" from excel sheet
         System.out.println(sheet.getRow(1).getCell(0));
 
+        //Print out "Singer" from excel sheet
+        System.out.println(sheet.getRow(3).getCell(2));
+
+
+
+
+
+
 
     }
 
