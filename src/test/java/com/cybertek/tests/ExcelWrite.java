@@ -7,6 +7,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class ExcelWrite {
@@ -42,6 +43,22 @@ public class ExcelWrite {
         XSSFCell adamsCell = sheet.getRow(2).getCell(0);
 
         System.out.println("Before = " + adamsCell);
+
+        adamsCell.setCellValue("Madam");
+
+        System.out.println("After = " + adamsCell);
+
+
+
+
+        //===============================================================
+        //Load the file to outputStream
+        FileOutputStream fileOutputStream = new FileOutputStream(path);
+        //Write to the file using workbook object
+        workbook.write(fileOutputStream);
+        fileInputStream.close();
+        fileOutputStream.close();
+        workbook.close();
 
 
     }
