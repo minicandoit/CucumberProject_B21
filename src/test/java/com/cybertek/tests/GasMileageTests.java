@@ -46,6 +46,21 @@ public class GasMileageTests {
 
             XSSFRow currentRow = sheet.getRow(rowNum);
 
+            if (!currentRow.getCell(0).toString().equals("Y")){
+
+                if (currentRow.getCell(6) == null){
+
+                    currentRow.createCell(6);
+
+                }
+
+                currentRow.getCell(6).setCellValue("Skip Requested!");
+
+                continue;
+
+            }
+
+
             //===========================================================================
             //entering current odometer reading
             //double current = 123000;
