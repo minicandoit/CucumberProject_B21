@@ -21,6 +21,12 @@ public class GasMileageCalculatorPage {
     @FindBy(id = "usgasputin")
     public WebElement inputGas;
 
+    @FindBy(xpath = "(//input[@alt='Calculate'])[1]")
+    public WebElement calculateButton;
+
+    @FindBy(xpath = "//b[contains(text(), 'mpg')]")
+    public WebElement resultInGas;
+
 
 
 
