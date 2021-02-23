@@ -34,6 +34,26 @@ public class GasMileageTests {
         //loading the workbook to the class
         workbook = new XSSFWorkbook(fileInputStream);
 
+        //opening sheet
+        sheet = workbook.getSheet("Sheet1");
+
+        //===========================================================================
+        //entering current odometer reading
+        double current = 123000;
+
+        //Clearing the input box before entering any data
+        gasMileageCalculatorPage.inputCurrentOdo.clear();
+
+        //We need to pass 'double' into input box
+        gasMileageCalculatorPage.inputCurrentOdo.sendKeys(String.valueOf(current));
+
+        //===========================================================================
+        //Entering previous odometer reading
+        double previous = 122000;
+
+        gasMileageCalculatorPage.inputPreviousOdo.clear();
+        gasMileageCalculatorPage.inputPreviousOdo.sendKeys(String.valueOf(previous));
+
     }
 
 }
