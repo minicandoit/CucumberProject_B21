@@ -38,8 +38,16 @@ public class ExcelRead {
         System.out.println(sheet.getRow(3).getCell(2));
 
 
+        //Returns the count of used cells only
+        //If there are cells not used they will not be counted
+        //Starts from counting 1
+        int usedRows = sheet.getPhysicalNumberOfRows();
 
 
+        //Returns the count from top to bottom
+        //Even counts if there are empty cells
+        //this starts counting from 0
+        int lastUsedRow = sheet.getLastRowNum();
 
 
 
