@@ -63,7 +63,8 @@ public class GasMileageTests {
 
         //===========================================================================
         //Entering how many gallons of gas used
-        double gas = 70;
+        //double gas = 70;
+        double gas = currentRow.getCell(3).getNumericCellValue();
 
         gasMileageCalculatorPage.inputGas.clear();
         gasMileageCalculatorPage.inputGas.sendKeys(String.valueOf(gas));
