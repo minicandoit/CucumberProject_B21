@@ -61,14 +61,24 @@ public class GasMileageTests {
         gasMileageCalculatorPage.inputGas.clear();
         gasMileageCalculatorPage.inputGas.sendKeys(String.valueOf(gas));
 
+        //===========================================================================
+        //Click to calculate button
+
+        gasMileageCalculatorPage.calculateButton.click();
+
+        //How does the calculation of AVG/MPG work
+        // (current-previous)/gallons --> avg MPG
+
+        double expectedResult = (current-previous)/gas;
+
+        System.out.println("expectedResult = " + expectedResult);
 
 
+        //actual result --> 14.29 mpg --> split " " --> {"14.29", "mpg"}
+        String[] actualResultArr = gasMileageCalculatorPage.resultInGas.getText().split(" ");
+        System.out.println("actualResultArr = " + actualResultArr[0]);
 
-
-
-
-
-
+        //Task to round expected result into looking like actual result
     }
 
 }
