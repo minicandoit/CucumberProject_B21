@@ -54,6 +54,21 @@ public class GasMileageTests {
         gasMileageCalculatorPage.inputPreviousOdo.clear();
         gasMileageCalculatorPage.inputPreviousOdo.sendKeys(String.valueOf(previous));
 
+        //===========================================================================
+        //Entering how many gallons of gas used
+        double gas = 70;
+
+        gasMileageCalculatorPage.inputGas.clear();
+        gasMileageCalculatorPage.inputGas.sendKeys(String.valueOf(gas));
+
+
+
+
+
+
+
+
+
     }
 
 }
