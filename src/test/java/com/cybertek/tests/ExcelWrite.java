@@ -47,8 +47,19 @@ public class ExcelWrite {
         adamsCell.setCellValue("Madam");
 
         System.out.println("After = " + adamsCell);
+        //===============================================================
 
+        //TODO: CHANGE STEVEN'S NAME TO TOM
 
+        /*
+        Static way of the solution
+         */
+
+        XSSFCell stevensCell = sheet.getRow(1).getCell(0);
+
+        stevensCell.setCellValue("Tom");
+
+        System.out.println("stevensCell = " + stevensCell);
 
 
         //===============================================================
