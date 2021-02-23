@@ -62,6 +62,16 @@ public class ExcelRead {
 
         }
 
+        //TODO: 2- CREATE A LOGIC TO PRINT OUT ADAM SANDLER'S LAST NAME DYNAMICALLY
+
+        for (int rowNum = 0; rowNum < usedRows; rowNum++) {
+
+            if (sheet.getRow(rowNum).getCell(1).toString().equals("Sandler")){
+                System.out.println("Sandler's last name: " + sheet.getRow(rowNum).getCell(1) );
+            }
+
+        }
+
 
 
 
