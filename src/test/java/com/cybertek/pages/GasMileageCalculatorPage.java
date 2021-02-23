@@ -1,13 +1,25 @@
 package com.cybertek.pages;
 
 import com.cybertek.utilities.Driver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.yaml.snakeyaml.events.Event;
 
 public class GasMileageCalculatorPage {
 
     public GasMileageCalculatorPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
+    @FindBy(id = "uscodreading")
+    public WebElement inputCurrentOdo;
+
+    @FindBy(id = "uspodreading")
+    public WebElement inputPreviousOdo;
+
+    @FindBy(id = "usgasputin")
+    public WebElement inputGas;
 
 
 
