@@ -13,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
 
 public class GasMileageTests {
 
@@ -131,6 +132,16 @@ public class GasMileageTests {
             //System.out.println("FAIL!");
             currentRow.getCell(6).setCellValue("FAIL!");
         }
+
+        //===========================================================================
+        //ENTERING THE CURRENT TIME WHEN TEST IS RUNNING THAT SPECIFIC LINE
+
+        if (currentRow.getCell(7) == null){
+            currentRow.createCell(7);
+        }
+
+        currentRow.getCell(7).setCellValue(LocalDateTime.now().toString());
+
 
         //===========================================================================
         //We must write into excel file using .write method, otherwise changes will not be applied
