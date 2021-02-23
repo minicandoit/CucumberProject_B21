@@ -14,6 +14,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class GasMileageTests {
 
@@ -40,108 +42,115 @@ public class GasMileageTests {
         //opening sheet
         sheet = workbook.getSheet("Sheet1");
 
-        XSSFRow currentRow = sheet.getRow(1);
+        for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
 
-        //===========================================================================
-        //entering current odometer reading
-        //double current = 123000;
+            XSSFRow currentRow = sheet.getRow(rowNum);
 
-        double current = currentRow.getCell(1).getNumericCellValue();
+            //===========================================================================
+            //entering current odometer reading
+            //double current = 123000;
 
-        //Clearing the input box before entering any data
-        gasMileageCalculatorPage.inputCurrentOdo.clear();
+            double current = currentRow.getCell(1).getNumericCellValue();
 
-        //We need to pass 'double' into input box
-        gasMileageCalculatorPage.inputCurrentOdo.sendKeys(String.valueOf(current));
+            //Clearing the input box before entering any data
+            gasMileageCalculatorPage.inputCurrentOdo.clear();
 
-        //===========================================================================
-        //Entering previous odometer reading
-        //double previous = 122000;
-        double previous = currentRow.getCell(2).getNumericCellValue();
+            //We need to pass 'double' into input box
+            gasMileageCalculatorPage.inputCurrentOdo.sendKeys(String.valueOf(current));
 
-        gasMileageCalculatorPage.inputPreviousOdo.clear();
-        gasMileageCalculatorPage.inputPreviousOdo.sendKeys(String.valueOf(previous));
+            //===========================================================================
+            //Entering previous odometer reading
+            //double previous = 122000;
+            double previous = currentRow.getCell(2).getNumericCellValue();
 
-        //===========================================================================
-        //Entering how many gallons of gas used
-        //double gas = 70;
-        double gas = currentRow.getCell(3).getNumericCellValue();
+            gasMileageCalculatorPage.inputPreviousOdo.clear();
+            gasMileageCalculatorPage.inputPreviousOdo.sendKeys(String.valueOf(previous));
 
-        gasMileageCalculatorPage.inputGas.clear();
-        gasMileageCalculatorPage.inputGas.sendKeys(String.valueOf(gas));
+            //===========================================================================
+            //Entering how many gallons of gas used
+            //double gas = 70;
+            double gas = currentRow.getCell(3).getNumericCellValue();
 
-        //===========================================================================
-        //Click to calculate button
+            gasMileageCalculatorPage.inputGas.clear();
+            gasMileageCalculatorPage.inputGas.sendKeys(String.valueOf(gas));
 
-        gasMileageCalculatorPage.calculateButton.click();
+            //===========================================================================
+            //Click to calculate button
 
-        //How does the calculation of AVG/MPG work
-        // (current-previous)/gallons --> avg MPG
+            gasMileageCalculatorPage.calculateButton.click();
 
-        double expectedResult = (current-previous)/gas;
+            //How does the calculation of AVG/MPG work
+            // (current-previous)/gallons --> avg MPG
 
-        System.out.println("expectedResult = " + expectedResult);
+            double expectedResult = (current - previous) / gas;
 
-
-        //actual result --> 14.29 mpg --> split " " --> {"14.29", "mpg"}
-        String[] actualResultArr = gasMileageCalculatorPage.resultInGas.getText().split(" ");
-        System.out.println("actualResultArr = " + actualResultArr[0]);
+            System.out.println("expectedResult = " + expectedResult);
 
 
-        String actual = actualResultArr[0];
-        String expected = String.valueOf(expectedResult);
+            //actual result --> 14.29 mpg --> split " " --> {"14.29", "mpg"}
+            String[] actualResultArr = gasMileageCalculatorPage.resultInGas.getText().split(" ");
+            System.out.println("actualResultArr = " + actualResultArr[0]);
 
-        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
-        String formattedExpected = decimalFormat.format(expectedResult);
 
-        System.out.println("formattedExpected = " + formattedExpected);
+            String actual = actualResultArr[0];
+            String expected = String.valueOf(expectedResult);
 
-        //===========================================================================
-        // PASSING EXPECTED VALUE INTO EXCEL SHEET
-        //If the cell is empty, we need to create the cell before being able to pass
-        //any data into it
-        if (currentRow.getCell(4) == null) {
+            DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+            String formattedExpected = decimalFormat.format(expectedResult);
 
-            currentRow.createCell(4);
+            System.out.println("formattedExpected = " + formattedExpected);
+
+            //===========================================================================
+            // PASSING EXPECTED VALUE INTO EXCEL SHEET
+            //If the cell is empty, we need to create the cell before being able to pass
+            //any data into it
+            if (currentRow.getCell(4) == null) {
+
+                currentRow.createCell(4);
+
+            }
+
+            //Passing the 'formattedExpected' into our Excel sheet "Expected" cell
+            currentRow.getCell(4).setCellValue(formattedExpected);
+            //===========================================================================
+            // Passing ACTUAL value into EXCEL SHEET
+
+            if (currentRow.getCell(5) == null) {
+
+                currentRow.createCell(5);
+
+            }
+
+            currentRow.getCell(5).setCellValue(actual);
+            //===========================================================================
+            //PASSING THE STATUS INTO THE EXCEL FILE
+
+            if (currentRow.getCell(6) == null) {
+                currentRow.createCell(6);
+            }
+
+            //===========================================================================
+            //COMPARING ACTUAL VS EXPECTED AND PASSING THE RESULT INTO EXCEL SHEET
+
+            if (actual.equals(formattedExpected)) {
+                //System.out.println("PASS!");
+                currentRow.getCell(6).setCellValue("PASS!");
+            } else {
+                //System.out.println("FAIL!");
+                currentRow.getCell(6).setCellValue("FAIL!");
+            }
+
+            //===========================================================================
+            //ENTERING THE CURRENT TIME WHEN TEST IS RUNNING THAT SPECIFIC LINE
+
+            if (currentRow.getCell(7) == null) {
+                currentRow.createCell(7);
+            }
+
+            DateTimeFormatter DTF = DateTimeFormatter.ofPattern("hh:mm:ss a");
+            currentRow.getCell(7).setCellValue(LocalTime.now().format(DTF));
 
         }
-
-        //Passing the 'formattedExpected' into our Excel sheet "Expected" cell
-        currentRow.getCell(4).setCellValue(formattedExpected);
-        //===========================================================================
-        // Passing ACTUAL value into EXCEL SHEET
-
-        if (currentRow.getCell(5) == null) {
-
-            currentRow.createCell(5);
-
-        }
-
-        currentRow.getCell(5).setCellValue(actual);
-        //===========================================================================
-        //PASSING THE STATUS INTO THE EXCEL FILE
-
-        if (currentRow.getCell(6) == null){
-            currentRow.createCell(6);
-        }
-
-        if (actual.equals(formattedExpected)){
-            //System.out.println("PASS!");
-            currentRow.getCell(6).setCellValue("PASS!");
-        }else{
-            //System.out.println("FAIL!");
-            currentRow.getCell(6).setCellValue("FAIL!");
-        }
-
-        //===========================================================================
-        //ENTERING THE CURRENT TIME WHEN TEST IS RUNNING THAT SPECIFIC LINE
-
-        if (currentRow.getCell(7) == null){
-            currentRow.createCell(7);
-        }
-
-        currentRow.getCell(7).setCellValue(LocalDateTime.now().toString());
-
 
         //===========================================================================
         //We must write into excel file using .write method, otherwise changes will not be applied
