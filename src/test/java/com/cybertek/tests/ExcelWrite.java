@@ -55,11 +55,29 @@ public class ExcelWrite {
         Static way of the solution
          */
 
-        XSSFCell stevensCell = sheet.getRow(1).getCell(0);
+//        XSSFCell stevensCell = sheet.getRow(1).getCell(0);
+//
+//        stevensCell.setCellValue("Tom");
+//
+//        System.out.println("stevensCell = " + stevensCell);
 
-        stevensCell.setCellValue("Tom");
+        /*
+        Dynamic way of the solution
+         */
 
-        System.out.println("stevensCell = " + stevensCell);
+        for (int rowNum = 0; rowNum < sheet.getPhysicalNumberOfRows(); rowNum++) {
+
+           if (sheet.getRow(rowNum).getCell(0).toString().equals("Steven")){
+
+               sheet.getRow(rowNum).getCell(0).setCellValue("Tom");
+
+           }
+
+        }
+
+
+
+
 
 
         //===============================================================
